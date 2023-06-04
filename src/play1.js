@@ -1,6 +1,6 @@
-class Overworld extends Phaser.Scene{
+class play1 extends Phaser.Scene{
     constructor(){
-        super({key:"overworldScene"});
+        super({key:"play1Scene"});
         this.VEL=100
     }
     preload(){
