@@ -10,6 +10,8 @@ class play1 extends Phaser.Scene{
 //        this.load.image('focus','focus1.png');  
         this.load.image('tilesetImage','seven_eleven_tileset.png');
         this.load.tilemapTiledJSON('tilemapJSON','area01.json');
+        this.load.audio('play_music', 'GFOATmusic.wav');
+
     }
     create(){
         const map=this.add.tilemap('tilemapJSON');
@@ -42,6 +44,11 @@ class play1 extends Phaser.Scene{
         // this.cameras.main.startFollow(this.slime,true,0.25,0.25);
         // this.physics.world.bounds.setTo(0,0,map.widthInPixels,map.heightInPixels);
         this.cursors=this.input.keyboard.createCursorKeys();
+        this.music =  this.sound.add('play_music', {
+            volume: 0.2,
+            loop: true
+        })
+        this.music.play()
 
     }
     update(){
