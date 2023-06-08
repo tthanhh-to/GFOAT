@@ -1,3 +1,4 @@
+//https://reakain.itch.io/gb-studio-7-11-tileset
 let config={
     type: Phaser.CANVAS,
     render:{
@@ -15,6 +16,8 @@ let config={
         }
     },
     zoom: 3,
-    scene: [play1]
+    scene: [title,play1,play2]
 }
+let keyF, keyR, keyLEFT, keyRIGHT, keyUP, keySPACE; 
+
 const game=new Phaser.Game(config)
