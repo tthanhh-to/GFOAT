@@ -4,18 +4,18 @@ let config={
     render:{
         pixelArt:true
     },
-    width:240,
-    height:160,
+    width:480,
+    height:320,
     scale: {
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
     physics:{
         default:'arcade',
         arcade:{
-        //    debug: true
+            debug: true
         }
     },
-    zoom: 3,
+    zoom: 1.5,
     scene: [title,play1,play2]
 }
 let keyF, keyR, keyLEFT, keyRIGHT, keyUP, keySPACE; 
