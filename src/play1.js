@@ -29,10 +29,10 @@ class play1 extends Phaser.Scene{
         //setting the hitbox of the sprite to make sure it fits through the spaces 
         this.x.body.setSize(16,16);
         this.add.text(10,0, "PRO TIP: HOLD DOWN MULTIPLE ARROWS AT ONCE",menuConfig);
-        this.a=this.physics.add.sprite(440,280,'A',0);
-
         this.aback=this.physics.add.sprite(440,280,'Aback',0);
-        this.aback.body.setSize(300,300);
+        this.aback.body.setSize(40,40);
+
+        this.a=this.physics.add.sprite(440,280,'A',0);
         this.heart=this.add.sprite(450,20,'heart_atlas','sprite7')
         this.heart.setAlpha(0);
 
@@ -56,6 +56,7 @@ class play1 extends Phaser.Scene{
         this.physics.add.overlap(this.x, this.a); // collision between coin and player
 
         this.physics.world.on('overlap', (player, a) => {
+            this.aback.setAlpha(0);
             this.heart.setAlpha(1);
             this.heart.anims.play('heartFull');
             this.clock = this.time.delayedCall(5000, () => {
@@ -73,7 +74,6 @@ class play1 extends Phaser.Scene{
         })
         this.music.play();
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-
     }
     update(){
 //        this.x.hit = this.x.body.touching; 
