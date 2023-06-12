@@ -3,18 +3,6 @@ class play1 extends Phaser.Scene{
         super({key:"play1Scene"});
         this.VEL=100;
     }
-
-    preload(){
-        //loading images and tilemaps
-        this.load.path='./assets/';
-        this.load.image('X','focus1.png');  
-        this.load.image('A','A1.png');
-        this.load.image('Aback','Aback.png');
-        this.load.image('tilesetImage','seven_eleven_tileset.png');
-        this.load.tilemapTiledJSON('tilemapJSON','area01.json');
-        this.load.audio('play_music', 'GFOATmusic.wav');
-    }
-
     create(){
         let menuConfig = {
             fontFamily: 'Oranienbaum',
@@ -44,25 +32,36 @@ class play1 extends Phaser.Scene{
         this.a=this.physics.add.sprite(440,280,'A',0);
 
         this.aback=this.physics.add.sprite(440,280,'Aback',0);
-        this.aback.body.setSize(40,40);
+        this.aback.body.setSize(300,300);
+        this.heart=this.add.sprite(450,20,'heart_atlas','sprite7')
+        this.heart.setAlpha(0);
+
+        this.anims.create({
+            key:"heartFull",
+            frameRate:10,
+            frames: this.anims.generateFrameNames("heart_atlas", {
+                prefix:"sprite",
+                start: 7,
+                end:1
+            })
+        });
 
         //setting x to collide with the world bounds and with the maze walls 
         this.x.body.setCollideWorldBounds(true);
         wallLayer.setCollisionByProperty({collides:true});
 
         this.physics.add.collider(this.x,wallLayer);
-        this.physics.add.collider(this.x,this.Aback);
         this.a.setImmovable(true);
         this.x.body.onOverlap = true;
-
         this.physics.add.overlap(this.x, this.a); // collision between coin and player
 
-
         this.physics.world.on('overlap', (player, a) => {
-            a.destroy();
-            this.scene.start("play2Scene");
-
-        });                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+            this.heart.setAlpha(1);
+            this.heart.anims.play('heartFull');
+            this.clock = this.time.delayedCall(5000, () => {
+                this.scene.start("play2Scene");
+            }, null, this);
+        });                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
 
 
         //creates the cursor keys to register when playing the game 
@@ -72,7 +71,7 @@ class play1 extends Phaser.Scene{
             volume: 0.2,
             loop: true
         })
-        this.music.play()
+        this.music.play();
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
     }
@@ -100,5 +99,4 @@ class play1 extends Phaser.Scene{
         //adding movement to x
         this.x.setVelocity(this.VEL*this.direction.x,this.VEL*this.direction.y);
    }
-
 }
