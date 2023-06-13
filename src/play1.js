@@ -25,7 +25,7 @@ class play1 extends Phaser.Scene{
         const wallLayer=map.createLayer('walls',seven_eleven_tileset,0,0);
 
         //adding x sprite and scaling it down in size to fit
-        this.x=this.physics.add.sprite(75,75,'X',0).setScale(.6);
+        this.x=this.physics.add.sprite(70,73,'X',0).setScale(.6);
         //setting the hitbox of the sprite to make sure it fits through the spaces 
         this.x.body.setSize(16,16);
         this.add.text(10,0, "PRO TIP: HOLD DOWN MULTIPLE ARROWS AT ONCE",menuConfig);
@@ -33,8 +33,7 @@ class play1 extends Phaser.Scene{
         this.aback.body.setSize(40,40);
 
         this.a=this.physics.add.sprite(440,280,'A',0);
-        this.heart=this.add.sprite(450,20,'heart_atlas','sprite7')
-        this.heart.setAlpha(0);
+        this.heart=this.add.sprite(470,10,'heart_atlas','sprite7').setScale(.5);
 
         this.anims.create({
             key:"heartFull",
@@ -57,7 +56,6 @@ class play1 extends Phaser.Scene{
 
         this.physics.world.on('overlap', (player, a) => {
             this.aback.setAlpha(0);
-            this.heart.setAlpha(1);
             this.heart.anims.play('heartFull');
             this.clock = this.time.delayedCall(5000, () => {
                 this.scene.start("laterScene");
@@ -78,7 +76,6 @@ class play1 extends Phaser.Scene{
     update(){
 //        this.x.hit = this.x.body.touching; 
         //adding movement
-        this.physics.collide(this.x, this.a);
         this.direction=new Phaser.Math.Vector2(0);
         if(this.cursors.left.isDown){
             this.direction.x=-2;
