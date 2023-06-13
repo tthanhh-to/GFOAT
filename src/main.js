@@ -16,7 +16,7 @@ let config={
         }
     },
     zoom: 1.5,
-    scene: [load,title,play1,play2]
+    scene: [load,title,play1,yearLater,play2]
 }
 let keyF, keyR, keyLEFT, keyRIGHT, keyUP, keySPACE; 
 
