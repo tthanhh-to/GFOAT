@@ -47,9 +47,9 @@ class play2 extends Phaser.Scene{
             this.aback.setAlpha(0);
             this.music.stop();
             this.heart.anims.play('heartEmpty');
-            // this.clock = this.time.delayedCall(5000, () => {
-            //     this.scene.start("laterScene");
-            // }, null, this);
+            this.clock = this.time.delayedCall(3000, () => {
+                this.scene.start("remindScene");
+            }, null, this);
         });                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
 
         //creates the cursor keys to register when playing the game 

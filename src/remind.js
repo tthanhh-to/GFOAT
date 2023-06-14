@@ -28,6 +28,7 @@ class remind extends Phaser.Scene{
         this.h4=this.physics.add.sprite(175,165,'heart_atlas','sprite1').setScale(.25);
         //right middle
         this.h5=this.physics.add.sprite(325,240,'heart_atlas','sprite1').setScale(.25);
+        this.ax.body.setSize(30,14);
 
         //setting x to collide with the world bounds and with the maze walls 
         this.ax.body.setCollideWorldBounds(true);
@@ -132,6 +133,7 @@ class remind extends Phaser.Scene{
             this.direction.y=2;
         }
         if (this.heartCount>=5){
+            this.music.stop();
             this.scene.start("finScene");
         }
         this.direction.normalize();

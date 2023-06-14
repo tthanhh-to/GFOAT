@@ -12,11 +12,11 @@ let config={
     physics:{
         default:'arcade',
         arcade:{
-            debug: true
+            //debug: true
         }
     },
     zoom: 1.5,
-    scene: [load,title,credits,play1,yearLater,play2]
+    scene: [load,title,credits,play1,yearLater,play2,remind,fin]
 }
 let keyF, keyR, keyLEFT, keyRIGHT, keyUP, keySPACE,keyC; 
 

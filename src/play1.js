@@ -57,7 +57,7 @@ class play1 extends Phaser.Scene{
         this.physics.world.on('overlap', (player, a) => {
             this.aback.setAlpha(0);
             this.heart.anims.play('heartFull');
-            this.clock = this.time.delayedCall(5000, () => {
+            this.clock = this.time.delayedCall(3000, () => {
                 this.music.stop();
                 this.scene.start("laterScene");
             }, null, this);
