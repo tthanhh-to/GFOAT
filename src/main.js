@@ -16,8 +16,8 @@ let config={
         }
     },
     zoom: 1.5,
-    scene: [load,title,play1,yearLater,play2]
+    scene: [load,title,credits,play1,yearLater,play2,remind,fin]
 }
-let keyF, keyR, keyLEFT, keyRIGHT, keyUP, keySPACE; 
+let keyF, keyR, keyLEFT, keyRIGHT, keyUP, keySPACE,keyC; 
 
 const game=new Phaser.Game(config);

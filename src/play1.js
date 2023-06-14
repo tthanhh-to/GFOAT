@@ -58,6 +58,7 @@ class play1 extends Phaser.Scene{
             this.aback.setAlpha(0);
             this.heart.anims.play('heartFull');
             this.clock = this.time.delayedCall(5000, () => {
+                this.music.stop();
                 this.scene.start("laterScene");
             }, null, this);
         });                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
@@ -90,7 +91,7 @@ class play1 extends Phaser.Scene{
             this.direction.y=2;
         }
         if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
-            this.scene.start("laterScene");
+            this.scene.start("remindScene");
         }
         this.direction.normalize();
         //adding movement to x

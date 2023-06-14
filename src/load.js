@@ -17,14 +17,19 @@ class load extends Phaser.Scene {
         // set load path
         this.load.path = 'assets/';
         // take care of all of our asset loading now
+        this.load.image('titleImg','titleimg1.jpg');
+        this.load.image('creditsImg','titleimg.jpg');
         this.load.image('X','focus1.png');  
         this.load.image('A','A1.png');
         this.load.image('M','M.png');
         this.load.image('Aback','Aback.png');
+        this.load.image('AX','ax.png');  
         this.load.atlas('heart_atlas', 'heart.png', 'hearts.json');
         this.load.image('tilesetImage','seven_eleven_tileset.png');
         this.load.tilemapTiledJSON('tilemapJSON','area01.json');
         this.load.tilemapTiledJSON('tilemapJSON2','area02.json');
+        this.load.tilemapTiledJSON('tilemapJSON3','area03.json');
+
         this.load.audio('play_music', 'GFOATmusic.wav');
     }
 
