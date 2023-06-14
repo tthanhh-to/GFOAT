@@ -12,7 +12,7 @@ class fin extends Phaser.Scene {
             fixedWidth: 0
         }
         this.add.text(70, game.config.height/2.2, "FIN",menuConfig);
-        this.clock = this.time.delayedCall(3000, () => {
+        this.clock = this.time.delayedCall(4000, () => {
             this.scene.start("title");
         }, null, this);
     }
