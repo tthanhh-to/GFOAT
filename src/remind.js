@@ -134,9 +134,6 @@ class remind extends Phaser.Scene{
         if (this.heartCount>=5){
             this.scene.start("finScene");
         }
-        if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
-            this.scene.start("laterScene");
-        }
         this.direction.normalize();
         //adding movement to x
         this.ax.setVelocity(this.VEL*this.direction.x,this.VEL*this.direction.y);

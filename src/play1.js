@@ -90,9 +90,6 @@ class play1 extends Phaser.Scene{
         else if(this.cursors.down.isDown){
             this.direction.y=2;
         }
-        if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
-            this.scene.start("remindScene");
-        }
         this.direction.normalize();
         //adding movement to x
         this.x.setVelocity(this.VEL*this.direction.x,this.VEL*this.direction.y);

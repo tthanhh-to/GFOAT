@@ -1,4 +1,4 @@
-//https://reakain.itch.io/gb-studio-7-11-tileset
+//included physics systems, cameras, particle effects, text objects, the animation manager, tilemaps
 let config={
     type: Phaser.CANVAS,
     render:{
@@ -16,7 +16,7 @@ let config={
         }
     },
     zoom: 1.5,
-    scene: [load,title,credits,play1,yearLater,play2,remind,fin]
+    scene: [load,title,credits,play1,yearLater,play2]
 }
 let keyF, keyR, keyLEFT, keyRIGHT, keyUP, keySPACE,keyC; 
 
